@@ -11,7 +11,8 @@
  See the License for the specific language governing permissions and
  limitations under the License.-->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -46,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="4dp"
-                android:paddingRight="8dp"
+                android:paddingEnd="8dp"
                 android:paddingTop="4dp"
                 android:src="@drawable/ic_globe_primary_24dp" />
 
@@ -59,8 +60,41 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
 
-        <!-- TODO (6) Add a LinearLayout that contains a checkbox to grant the location permissions
-                        and set the checkbox click listener to call onLocationPermissionClicked -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/ic_my_location_primary_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/location_permissions"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/location_permissions_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:onClick="onLocationPermissionClicked" />
+
+            </RelativeLayout>
+        </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
@@ -68,6 +102,7 @@
             android:layout_marginTop="12dp"
             android:background="@color/colorPrimary"
             android:text="@string/add_new_location"
+            android:onClick="onAddPlaceButtonClicked"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:textColor="@android:color/white" />
 
